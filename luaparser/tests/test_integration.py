@@ -152,35 +152,28 @@ class IntegrationTestCase(tests.TestCase):
                     Block: {} 2 keys
                       body: [] 2 items
                         0: {} 1 key          
-                          LocalFunction: {} 5 keys
-                            wrapped: False
-                            name: {} 3 keys
-                              Name: {} 3 keys
-                                wrapped: False
+                          LocalFunction: {} 4 keys
+                            name: {} 2 keys
+                              Name: {} 2 keys
                                 id: 'sayHello'
                             args: [] 0 item
                             body: {} 2 keys
                               Block: {} 2 keys
                                 body: [] 1 item
                                   0: {} 1 key                    
-                                    Call: {} 4 keys
-                                      wrapped: False
-                                      func: {} 3 keys
-                                        Name: {} 3 keys
-                                          wrapped: False
+                                    Call: {} 3 keys
+                                      func: {} 2 keys
+                                        Name: {} 2 keys
                                           id: 'print'
                                       args: [] 1 item
                                         0: {} 1 key                          
-                                          String: {} 4 keys
-                                            wrapped: False
+                                          String: {} 3 keys
                                             s: 'hello world !'
                                             delimiter: SINGLE_QUOTE
                         1: {} 1 key          
-                          Call: {} 4 keys
-                            wrapped: False
-                            func: {} 3 keys
-                              Name: {} 3 keys
-                                wrapped: False
+                          Call: {} 3 keys
+                            func: {} 2 keys
+                              Name: {} 2 keys
                                 id: 'sayHello'
                             args: [] 0 item"""
         )

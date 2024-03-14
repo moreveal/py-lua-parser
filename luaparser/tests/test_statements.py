@@ -387,7 +387,7 @@ class StatementsTestCase(tests.TestCase):
             Block(
                 [
                     If(
-                        test=LessThanOp(left=Name("a"), right=Number(2), wrapped=True),
+                        test=LessThanOp(left=Name("a"), right=Number(2)),
                         body=Block([]),
                         orelse=None,
                     )
