@@ -138,7 +138,21 @@ class Comment(Node):
 
 
 class Expression(Node):
-    """Define a Lua expression."""
+    """Define a Lua expression.
+
+    Attributes:
+        wrapped (`bool`): True if expression is between parentheses
+    """
+    wrapped: bool
+
+    def __init__(
+        self,
+        name: str,
+        wrapped=False,
+        **kwargs,
+    ):
+        super(Expression, self).__init__(name, **kwargs)
+        self.wrapped = wrapped
 
 
 class Statement(Expression):
