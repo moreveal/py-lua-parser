@@ -223,7 +223,12 @@ class LuaOutputVisitor:
 
     def do_visit(self, node: Node) -> str:
         if isinstance(node, Expression) and node.wrapped:
-            return "(" + self.visit(node) + ")"
+            if hasattr(node, 'body'):
+                if node.body.startswith("(") and node.body.endswith(")"):
+                    return node.body
+                else:
+                    wrapped_body = self.do_visit(node.body)
+                    return f"({wrapped_body})"
         return self.visit(node)
 
     @multimethod
@@ -436,6 +441,9 @@ class LuaOutputVisitor:
 
     @visit.register
     def visit(self, node: Field):
+        if isinstance(node.key, Number) and not node.between_brackets:
+            return self.do_visit(node.value) # no-key value
+        
         output = "[" if node.between_brackets else ""
         output += self.do_visit(node.key)
         output += "]" if node.between_brackets else ""
