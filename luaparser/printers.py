@@ -223,12 +223,7 @@ class LuaOutputVisitor:
 
     def do_visit(self, node: Node) -> str:
         if isinstance(node, Expression) and node.wrapped:
-            if hasattr(node, 'body'):
-                if node.body.startswith("(") and node.body.endswith(")"):
-                    return node.body
-                else:
-                    wrapped_body = self.do_visit(node.body)
-                    return f"({wrapped_body})"
+            return "(" + self.visit(node) + ")"
         return self.visit(node)
 
     @multimethod
